@@ -46,7 +46,7 @@ function showNotes() {
             rxjs.fromEvent(red0, 'click').subscribe(() => changeRed(red0.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(gold0, 'click').subscribe(() => changeGold(gold0.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(blue0, 'click').subscribe(() => changeBlue(blue0.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(green0, 'click').subscribe(() => ChangeGreen(green0.parentNode.parentNode.parentNode.querySelector(".note-details")));
+            rxjs.fromEvent(green0, 'click').subscribe(() => changeGreen(green0.parentNode.parentNode.parentNode.querySelector(".note-details")));
             }
             if(index ==1){
             rxjs.fromEvent(menu1, 'click').subscribe(() => showMenu(menu1));
@@ -55,7 +55,7 @@ function showNotes() {
             rxjs.fromEvent(red1, 'click').subscribe(() => changeRed(red1.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(gold1, 'click').subscribe(() => changeGold(gold1.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(blue1, 'click').subscribe(() => changeBlue(blue1.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(green1, 'click').subscribe(() => ChangeGreen(green1.parentNode.parentNode.parentNode.querySelector(".note-details")));
+            rxjs.fromEvent(green1, 'click').subscribe(() => changeGreen(green1.parentNode.parentNode.parentNode.querySelector(".note-details")));
             }
             if(index ==2){
             rxjs.fromEvent(menu2, 'click').subscribe(() => showMenu(menu2));
@@ -64,7 +64,7 @@ function showNotes() {
             rxjs.fromEvent(red2, 'click').subscribe(() => changeRed(red2.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(gold2, 'click').subscribe(() => changeGold(gold2.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(blue2, 'click').subscribe(() => changeBlue(blue2.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(green2, 'click').subscribe(() => ChangeGreen(green2.parentNode.parentNode.parentNode.querySelector(".note-details")));
+            rxjs.fromEvent(green2, 'click').subscribe(() => changeGreen(green2.parentNode.parentNode.parentNode.querySelector(".note-details")));
             }
     });
 }
