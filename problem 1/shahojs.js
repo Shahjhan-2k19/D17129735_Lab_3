@@ -38,8 +38,8 @@ function showNotes() {
                             </div>
                         </div>
                     </li>`;
-            addNote.insertAdjacentHTML("afterbegin",listData) //
-            if(index ==0){
+            addNote.insertAdjacentHTML("afterbegin",listData) //by using rxjs making button event.
+            if(index ==0){//Hardcoding button names for each index because passing the button itself and not button string.
             rxjs.fromEvent(menu0, 'click').subscribe(() => showMenu(menu0));
             rxjs.fromEvent(delbtn0, 'click').subscribe(() => delNote(index));
             rxjs.fromEvent(editbtn0, 'click').subscribe(() => editNote(index, note.Title,note.desc));
