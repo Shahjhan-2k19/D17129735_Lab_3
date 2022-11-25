@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<!--rxjs-->
 <html>
   <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <input id="hours" type="number" max="99" min="0" />:
+      <input id="minutes" type="number" max="99" min="0" />:
+      <input id="seconds" type="number" max="99" min="0" />
+      <button id="start" class="btn">▷Start Countdown</button>
+    </div>
     <script src="https://unpkg.com/rxjs@7.5.7/dist/bundles/rxjs.umd.min.js"></script>
     <script src="index.js"></script>
-  </head>
-  <body></body>
+  </body>
 </html>
