@@ -160,3 +160,4 @@ function add(){
         console.log(newNoteData);
     } else console.log("Can not be empty") 
 };
+
