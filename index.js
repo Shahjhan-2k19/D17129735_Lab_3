@@ -13,34 +13,79 @@ const notes =JSON.parse(sessionStorage.getItem("notes") || "[]") ;//reading sess
 let isUpdate=false, updateId; //declaring variables to check if to update or create new.
 
 function showNotes() {
-    document.querySelectorAll(".notes").forEach(note=> note.remove());
+  
     notes.forEach((note, index) => {
-        let listData= `<li class="notes">
-                        <div class="note-details">
-                            <p>${note.Title}</p>
-                            <span>${note.desc}</span>
-                        </div>
-                        <div class="note-footer">
-                            <span> ${note.date}</span>
-                            <div class="note-colour">
-                                <label>Choose:</label>
-                                <button id=red${index} class=BtnRed>Red</Button>
-                                <button id=gold${index} class=BtnGold>Gold</Button>
-                                <button id=green${index} class=BtnGreen>Gren</Button>
-                                <button id=blue${index} class=BtnBlue>Blue</Button>
-                            </div>
-                            <div class="note-options">
-                                <i id=menu${index} class="fa fa-ellipsis-h"></i>
-                                <ul class="menu-options">
-                                    <li><i id=editbtn${index} class="fa fa-pencil"></i>Edit</li>
-                                    <li><i id=delbtn${index} class="fa fa-trash"></i>Delete</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>`;
-                    addNote.insertAdjacentHTML("afterbegin",listData) //by using rxjs making button event.
-                    if(index ==0){//Hardcoding button names for each index because passing the button itself and not button string.
-            rxjs.fromEvent(menu0, 'click').subscribe(() => showMenu(menu0));
+        
+        let thisnote = document.createElement('li');
+        thisnote.setAttribute("class", "notes");
+        
+        addNote.appendChild(thisnote)
+        const notedetails = document.createElement('div');
+        notedetails.setAttribute("class", "note-details");
+        thisnote.appendChild(notedetails)
+
+        const title = document.createElement('p');
+        title.innerHTML=note.Title;
+        notedetails.appendChild(title)
+
+        const desc = document.createElement('span');
+        desc.innerHTML=note.Title;
+        notedetails.appendChild(desc)
+
+        const notefooter = document.createElement('div');
+        notedetails.setAttribute("class", "note-footer");
+        thisnote.appendChild(notefooter)
+        const date = document.createElement('span');
+        notefooter.appendChild(date)
+
+        const notecolor = document.createElement('div');
+        notedetails.setAttribute("class", "note-colour");
+        notefooter.appendChild(notecolor)
+
+        const red = document.createElement('button');
+        red.innerHTML = "Red";
+        red.setAttribute("class", "BtnRed");
+        red.setAttribute("id", "red" + index);
+        notecolor.appendChild(red)
+
+        const blue = document.createElement('button');
+        blue.innerHTML = "Blue";
+        blue.setAttribute("class", "BtnBlue");
+        blue.setAttribute("id", "blue" + index);
+        notecolor.appendChild(blue)
+
+        const green = document.createElement('button');
+        green.innerHTML = "Green";
+        green.setAttribute("class", "BtnGreen");
+        green.setAttribute("id", "green" + index);
+        notecolor.appendChild(green)
+//     document.querySelectorAll(".notes").forEach(note=> note.remove());
+//     notes.forEach((note, index) => {
+//         let listData= `<li class="notes">
+//                         <div class="note-details">
+//                             <p>${note.Title}</p>
+//                             <span>${note.desc}</span>
+//                         </div>
+//                         <div class="note-footer">
+//                             <span> ${note.date}</span>
+//                             <div class="note-colour">
+//                                 <label>Choose:</label>
+//                                 <button id=red${index} class=BtnRed>Red</Button>
+//                                 <button id=gold${index} class=BtnGold>Gold</Button>
+//                                 <button id=green${index} class=BtnGreen>Gren</Button>
+//                                 <button id=blue${index} class=BtnBlue>Blue</Button>
+//                             </div>
+//                             <div class="note-options">
+//                                 <i id=menu${index} class="fa fa-ellipsis-h"></i>
+//                                 <ul class="menu-options">
+//                                     <li><i id=editbtn${index} class="fa fa-pencil"></i>Edit</li>
+//                                     <li><i id=delbtn${index} class="fa fa-trash"></i>Delete</li>
+//                                 </ul>
+//                             </div>
+//                         </div>
+//                     </li>`;
+//                     addNote.insertAdjacentHTML("afterbegin",listData) //by using rxjs making button event.
+//                     if(index ==0){//Hardcoding button names for each index because passing the button itself and not button string.             rxjs.fromEvent(menu0, 'click').subscribe(() => showMenu(menu0));
             rxjs.fromEvent(delbtn0, 'click').subscribe(() => delNote(index));
             rxjs.fromEvent(editbtn0, 'click').subscribe(() => editNote(index, note.Title,note.desc));
             rxjs.fromEvent(red0, 'click').subscribe(() => changeRed(red0.parentNode.parentNode.parentNode.querySelector(".note-details")));
@@ -48,24 +93,24 @@ function showNotes() {
             rxjs.fromEvent(blue0, 'click').subscribe(() => changeBlue(blue0.parentNode.parentNode.parentNode.querySelector(".note-details")));
             rxjs.fromEvent(green0, 'click').subscribe(() => changeGreen(green0.parentNode.parentNode.parentNode.querySelector(".note-details")));
             }
-            if(index ==1){
-            rxjs.fromEvent(menu1, 'click').subscribe(() => showMenu(menu1));
-            rxjs.fromEvent(delbtn1, 'click').subscribe(() => delNote(index));
-            rxjs.fromEvent(editbtn1, 'click').subscribe(() => editNote(index, note.Title,note.desc));
-            rxjs.fromEvent(red1, 'click').subscribe(() => changeRed(red1.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(gold1, 'click').subscribe(() => changeGold(gold1.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(blue1, 'click').subscribe(() => changeBlue(blue1.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(green1, 'click').subscribe(() => changeGreen(green1.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            }
-            if(index ==2){
-            rxjs.fromEvent(menu2, 'click').subscribe(() => showMenu(menu2));
-            rxjs.fromEvent(delbtn2, 'click').subscribe(() => delNote(index));
-            rxjs.fromEvent(editbtn2, 'click').subscribe(() => editNote(index, note.Title,note.desc));
-            rxjs.fromEvent(red2, 'click').subscribe(() => changeRed(red2.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(gold2, 'click').subscribe(() => changeGold(gold2.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(blue2, 'click').subscribe(() => changeBlue(blue2.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            rxjs.fromEvent(green2, 'click').subscribe(() => changeGreen(green2.parentNode.parentNode.parentNode.querySelector(".note-details")));
-            }
+//             if(index ==1){
+//             rxjs.fromEvent(menu1, 'click').subscribe(() => showMenu(menu1));
+//             rxjs.fromEvent(delbtn1, 'click').subscribe(() => delNote(index));
+//             rxjs.fromEvent(editbtn1, 'click').subscribe(() => editNote(index, note.Title,note.desc));
+//             rxjs.fromEvent(red1, 'click').subscribe(() => changeRed(red1.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             rxjs.fromEvent(gold1, 'click').subscribe(() => changeGold(gold1.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             rxjs.fromEvent(blue1, 'click').subscribe(() => changeBlue(blue1.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             rxjs.fromEvent(green1, 'click').subscribe(() => changeGreen(green1.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             }
+//             if(index ==2){
+//             rxjs.fromEvent(menu2, 'click').subscribe(() => showMenu(menu2));
+//             rxjs.fromEvent(delbtn2, 'click').subscribe(() => delNote(index));
+//             rxjs.fromEvent(editbtn2, 'click').subscribe(() => editNote(index, note.Title,note.desc));
+//             rxjs.fromEvent(red2, 'click').subscribe(() => changeRed(red2.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             rxjs.fromEvent(gold2, 'click').subscribe(() => changeGold(gold2.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             rxjs.fromEvent(blue2, 'click').subscribe(() => changeBlue(blue2.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             rxjs.fromEvent(green2, 'click').subscribe(() => changeGreen(green2.parentNode.parentNode.parentNode.querySelector(".note-details")));
+//             }
     });
 }
 showNotes()
