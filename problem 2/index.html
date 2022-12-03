@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<head>
-  // count down using RXJS
-    <script src="https://unpkg.com/rxjs@7.5.7/dist/bundles/rxjs.umd.min.js"></script>
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="style.css" />
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    // getting input
-    <div id="container">
-      <input id="hours" type="number" max="99" min="0" />:
-      <input id="minutes" type="number" max="99" min="0" />:
-      <input id="seconds" type="number" max="99" min="0" />
-    </div>
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/rxjs@7.5.7/dist/bundles/rxjs.umd.min.js"></script>
+      <div id="container">
+        <input placeholder="hour" class="input" id="hours" type="number" max="12" min="0" />:
+        <input placeholder="min" class="input" id="minutes" type="number" max="60" min="0" />:
+        <input placeholder="sec" class="input" id="seconds" type="number" max="60" min="0" />
+        <br> <br> <button id="start" class="btn"> Start CountDown Timer </button>
+        <p id="display" class="label" > </p>
+      </div>
   </body>
 </html>
