@@ -1,0 +1,4 @@
+We didn't have to build any extra external variables, 
+intervals, or anything else with RxJS. Furthermore, 
+there is no need to add separate logic at the start;
+the entire logic is added in a single chain of commands.
